@@ -27,8 +27,8 @@
       <file leaf-file-name="TitanesDelDistrito.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/aod/entidades/TitanesDelDistrito.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="26" />
+            <state relative-caret-position="391">
+              <caret line="38" column="33" lean-forward="false" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#312#313#0" expanded="true" />
@@ -48,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/src/aod/entidades/Titan.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -415,15 +415,15 @@
     <entry file="file://$PROJECT_DIR$/src/aod/entidades/Titan.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aod/entidades/TitanesDelDistrito.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="26" />
+        <state relative-caret-position="391">
+          <caret line="38" column="33" lean-forward="false" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#312#313#0" expanded="true" />

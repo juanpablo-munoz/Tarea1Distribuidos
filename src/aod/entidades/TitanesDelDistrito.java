@@ -38,7 +38,7 @@ public class TitanesDelDistrito {
         Titan t = null;
         int ID_mas_nueva = Integer.MIN_VALUE;
 
-        foreach(int i=0; i<vivos.size(); i++){
+        for(int i=0; i<vivos.size(); i++){
             if(vivos.get(i).ID > ID_mas_nueva){
                 ID_mas_nueva = vivos.get(i).ID;
                 t = vivos.get(i);
