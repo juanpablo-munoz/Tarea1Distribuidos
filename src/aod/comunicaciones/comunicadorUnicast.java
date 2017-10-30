@@ -20,7 +20,7 @@ public class comunicadorUnicast {
             ip = InetAddress.getByName(arg_ip);
         } catch (Exception e) {
             System.out.println("Error al reconocer la IP.");
-            //e.printStackTrace();
+            e.printStackTrace();
         }
 
         puerto = arg_puerto;
@@ -38,12 +38,12 @@ public class comunicadorUnicast {
             ip = InetAddress.getLocalHost();
         } catch (Exception e) {
             System.out.println("Error al reconocer la IP.");
-            //e.printStackTrace();
+            e.printStackTrace();
         }
 
         puerto = arg_puerto;
         try {
-            unicastSocket = new DatagramSocket();
+            unicastSocket = new DatagramSocket(puerto);
         } catch (Exception e) {
             System.out.println("Error al crear DatagramSocket.");
             unicastSocket = null;
@@ -62,10 +62,10 @@ public class comunicadorUnicast {
     public void enviarMensaje(String msj) {
         mensajeEnviado = msj.getBytes();
         DatagramPacket paqueteEnviado =
-                new DatagramPacket(mensajeEnviado, mensajeEnviado.length, ip, puerto);
+                new DatagramPacket(mensajeEnviado, mensajeEnviado.length, ipUltimoCliente, puertoUltimoCliente);
         try {
             unicastSocket.send(paqueteEnviado);
-            System.out.println("\""+msj+"\": mensaje enviado!");
+            //System.out.println("\""+msj+"\": mensaje enviado!");
         } catch (Exception e) {
             System.out.println("Error al intentar enviar mensaje unicast.");
             e.printStackTrace();
@@ -84,7 +84,7 @@ public class comunicadorUnicast {
         }
         ipUltimoCliente = paqueteRecibido.getAddress();
         puertoUltimoCliente = paqueteRecibido.getPort();
-        return new String(paqueteRecibido.getData());
+        return new String(paqueteRecibido.getData()).trim();
     }
 
     public String getIPUltimoCliente() {
