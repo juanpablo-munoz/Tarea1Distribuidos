@@ -75,7 +75,7 @@ class ServidorCentral {
                         lock = false;
                         System.out.print("[Servidor Central] Respuesta a " + ipCliente + ":" + puertoCliente + " por " + mensaje);
                         respuesta = "0";
-                        System.out.println("\""+respuesta+"\"");
+                        System.out.println(" \""+respuesta+"\"");
                         break;
                     default:
                         System.out.print("Entrada invalida");
