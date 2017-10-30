@@ -58,7 +58,7 @@ class ServidorCentral {
         if (listaDistritos.get(mensaje) != null) {
             Distrito distr = listaDistritos.get(mensaje);
             boolean lock = true;
-            String respuesta = "denegado";
+            String respuesta = "0";
             while (lock) {
                 System.out.println("[Servidor Central] Dar autorizacion a " + ipCliente + ":" + puertoCliente + " por Distrito " + mensaje + "?");
                 System.out.println("(1) Si");
@@ -74,14 +74,14 @@ class ServidorCentral {
                     case "2":
                         lock = false;
                         System.out.print("[Servidor Central] Respuesta a " + ipCliente + ":" + puertoCliente + " por " + mensaje);
-                        respuesta = "denegado";
+                        respuesta = "0";
                         System.out.println("\""+respuesta+"\"");
                         break;
                     default:
                         System.out.print("Entrada invalida");
                 }
             }
-            cCliente.enviarMensaje(respuesta);
+            cCliente.enviarMensajeRespuesta(respuesta);
         }
         else {
             System.out.println("[Servidor Central] Distrito no se encuentra registrado. Ignorando...");

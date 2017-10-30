@@ -33,7 +33,7 @@ class Cliente {
         String distritoInvestigado = reader.next();
 
         // Hacer Petición para investigar el Distrito al Servidor Central
-        lineaServidorCentral.enviarMensaje(distritoInvestigado);
+        lineaServidorCentral.enviarMensajePeticion(distritoInvestigado);
         String resp = lineaServidorCentral.recibirMensaje();
         System.out.println("[Cliente] Servidor Central responde:\n\n"+resp);
 
