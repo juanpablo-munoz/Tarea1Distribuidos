@@ -37,8 +37,8 @@ class Cliente {
         String resp = lineaServidorCentral.recibirMensaje();
         System.out.println("[Cliente] Servidor Central responde:\n\n"+resp);
 
-        // Si la respuesta del Servidor Central es el string "denegado", es porque se ha rechazado la petición
-        if(resp.trim().equals("denegado")) {
+        // Si la respuesta del Servidor Central es el string "0", es porque se ha rechazado la petición
+        if(resp.trim().equals("0")) {
             System.out.println("[Cliente] Acceso denegado al Distrito " + distritoInvestigado);
             return;
         }
