@@ -17,7 +17,8 @@ import java.util.logging.Logger;
  */
 
 public class Distrito_server {
-            
+    
+    
     public Distrito_server() throws IOException{
     
 
@@ -26,6 +27,8 @@ public class Distrito_server {
         Scanner scanner = new Scanner(System.in);
         System.out.print("[Distrito] Nombre Servidor:");
         String Nombre_Distrito = scanner.next();
+        System.out.print("[Distrito "+ Nombre_Distrito + "] IP Servidor Central: ");
+        String ip_servidor_central = scanner.next();
         System.out.print("[Distrito "+ Nombre_Distrito + "] IP multicast: ");
         String ip_multicast = scanner.next();
         System.out.print("[Distrito "+ Nombre_Distrito + "] Puerto multicast: ");
@@ -39,11 +42,12 @@ public class Distrito_server {
         InetAddress grupo = InetAddress.getByName(ip_multicast);
         MulticastSocket socketDistrito = new MulticastSocket(puerto_multicast);
         socketDistrito.joinGroup(grupo);
-        
-        
-        Thread hiloA = new MiHilo(1,Nombre_Distrito,socketDistrito,ip_multicast,puerto_multicast,ip_peticion,puerto_peticion);
+        TitanesDelDistrito titanes = new TitanesDelDistrito();
+        comunicadorUnicast lineaDistrito = new comunicadorUnicast(puerto_peticion);
+        Thread hiloA = new MiHilo(1,Nombre_Distrito,socketDistrito,ip_multicast,puerto_multicast,ip_peticion,puerto_peticion, titanes,ip_servidor_central);
+        Thread hiloB = new MiHilo5(titanes,lineaDistrito);
         hiloA.start();
-        
+        hiloB.start();
 
 
     }    
@@ -52,7 +56,6 @@ class MiHilo extends Thread {
     public int variable;
     public String nombre_del_dist;
     public DatagramSocket socket = null;
-    public DatagramSocket socketunicast = null;
     public MulticastSocket socketDistrito = null;
     public InetAddress address;
     public InetAddress Ip_Multicast;
@@ -62,21 +65,18 @@ class MiHilo extends Thread {
     byte[] buf;
     public TitanesDelDistrito titanes;
     
-    public MiHilo(int numero, String nombre,MulticastSocket multisocket, String ip, int puerto,String ip2, int puerto2 ) throws SocketException, UnknownHostException{
+    public MiHilo(int numero, String nombre,MulticastSocket multisocket, String ip, int puerto,String ip2, int puerto2,TitanesDelDistrito titan,String ip_server  ) throws SocketException, UnknownHostException{
         variable = numero;
         nombre_del_dist=nombre;
         socket = new DatagramSocket();
-        socketunicast = new DatagramSocket(puerto2);
         socketDistrito = multisocket;
-        address = InetAddress.getLocalHost();
+        address = InetAddress.getByName(ip_server);
         Ip_Multicast =InetAddress.getByName(ip);
         Ip_unicast =ip2;
         puerto_multicast = puerto;
         puerto_unicast = puerto2;
         buf = new byte[1024];
-        String envio = new String("ok");
-        buf = envio.getBytes();
-        
+        titanes =titan;
     }
     @Override
     public void run(){
@@ -85,13 +85,6 @@ class MiHilo extends Thread {
         Scanner scanner = new Scanner(System.in);
         // Presenta en pantalla información sobre este hilo en particular
         Titan titan1;
-        titanes = new TitanesDelDistrito();
-        Thread hiloB = null;
-            try {
-                hiloB = new MiHilo5(puerto_unicast, "hola",socketunicast);
-            } catch (SocketException | UnknownHostException ex) {
-                Logger.getLogger(MiHilo.class.getName()).log(Level.SEVERE, null, ex);
-            }
             
         while(true){
         System.out.print("[Distrito "+ nombre_del_dist + "] Publicar Titán");
@@ -121,6 +114,7 @@ class MiHilo extends Thread {
             System.out.println("Selecciona una opcion valida");
             }
         }
+        buf = "ok".getBytes();
         DatagramPacket packet = new DatagramPacket(buf, buf.length, address, 4445);
         try {
             socket.send(packet);
@@ -136,7 +130,7 @@ class MiHilo extends Thread {
             }
         String received = new String(packet.getData(), 0);
         int id_titan = Integer.parseInt(received.trim());
-            
+
         titan1 = new Titan(id_titan , nombre_del_titan , tipo_del_titan , nombre_del_dist);
         titanes.agregarTitan(titan1);
         
@@ -155,8 +149,7 @@ class MiHilo extends Thread {
             }
             lista_titanes_vivos += lista.get(i).nombre + ", tipo "+ lista.get(i).tipo+ ", ID " + lista.get(i).ID + "\t";
             }
-            
-        System.out.println(listString);
+
         buf = listString.getBytes();
         packet = new DatagramPacket(buf, buf.length, Ip_Multicast, puerto_multicast);
             try {
@@ -165,18 +158,6 @@ class MiHilo extends Thread {
                 Logger.getLogger(MiHilo.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        hiloB.interrupt();
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(MiHilo.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
-                hiloB = new MiHilo5(puerto_unicast, lista_titanes_vivos,socketunicast);
-            } catch (SocketException | UnknownHostException ex) {
-                Logger.getLogger(MiHilo.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        hiloB.start();
         }
         }
 
@@ -184,44 +165,61 @@ class MiHilo extends Thread {
         }
      }
  class MiHilo5 extends Thread {
-    public int puertounicast;
-    public String titanes;
-    private volatile boolean isRunning = true;
-    public DatagramSocket socket = null;
-    DatagramPacket packet;
-    public MiHilo5(int puerto,String titan, DatagramSocket unicast ) throws SocketException, UnknownHostException{
-        puertounicast = puerto;
+    public TitanesDelDistrito titanes;
+    public comunicadorUnicast lineaDistrito;
+    
+    public MiHilo5(TitanesDelDistrito titan, comunicadorUnicast unicast ) throws SocketException, UnknownHostException{
         titanes = titan;
-        socket = unicast;
+        lineaDistrito = unicast;
     }
     @Override
     public void run(){
-        System.out.println(puertounicast);
-        System.out.println(titanes);
-        byte[] buf = new byte[1024];
-        byte[] buf2 = new byte[1024];
-        while(!Thread.currentThread().isInterrupted()){
-            packet = new DatagramPacket(buf, buf.length);
-                try {
-                    socket.receive(packet);
-                } catch (IOException ex) {
-                    Logger.getLogger(MiHilo2.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            String recibido = new String(packet.getData(),0);
-            InetAddress address = packet.getAddress();
-            int port = packet.getPort();
-            int identificador = Integer.parseInt(recibido.trim());
+        String mensaje_enviar = "";
+        while(true){
+            String recibido = lineaDistrito.recibirMensaje();
+            char[] aCaracteres = recibido.toCharArray();
+            String id_total ="";
+            int identificador = Integer.parseInt((String.valueOf(aCaracteres[0])).trim());
+            for (int i = 1 ; i<aCaracteres.length;i++){
+                id_total+= String.valueOf(aCaracteres[i]);
+            }
+            int id_titan = Integer.parseInt(id_total.trim());
             if(identificador == 1){
-                        buf2 = titanes.getBytes();
-                        packet = new DatagramPacket(buf2, buf2.length, address, port);
-                        {
-                            try {
-                                socket.send(packet);
-                            } catch (IOException ex) {
-                                Logger.getLogger(MiHilo5.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
+                List<Titan> lista = titanes.getVivos();
+                String lista_titanes_vivos = "";
+                for(int i = 0; i < lista.size(); i++) {
+                lista_titanes_vivos += lista.get(i).nombre + ", tipo "+ lista.get(i).tipo+ ", ID " + lista.get(i).ID + "\t";
+                }
+                lineaDistrito.enviarMensajeRespuesta(lista_titanes_vivos);
                         
+            }
+            if(identificador == 3){
+                List<Titan> lista = titanes.getVivos();
+                mensaje_enviar = "No se encontro la ID del titan";
+                for(int i = 0; i < lista.size(); i++) {
+                    if (lista.get(i).ID == id_titan && !"Excentrico".equals(lista.get(i).tipo)){
+                        titanes.capturarTitan(lista.get(i));
+                        mensaje_enviar = "Captura exitosa";
+                    }
+                    if (lista.get(i).ID == id_titan && "Excentrico".equals(lista.get(i).tipo)){
+                        mensaje_enviar = "El titan es tipo excentrico, por lo cual no se puede capturar";
+                    }
+                }
+                lineaDistrito.enviarMensajeRespuesta(mensaje_enviar);
+            }
+            if(identificador == 4){
+                List<Titan> lista = titanes.getVivos();
+                mensaje_enviar = "No se encontro la ID del titan";
+                for(int i = 0; i < lista.size(); i++) {
+                    if (lista.get(i).ID == id_titan && !"Cambiante".equals(lista.get(i).tipo)){
+                        titanes.asesinarTitan(lista.get(i));
+                        mensaje_enviar = "Asesinato exitoso";
+                    }
+                    if (lista.get(i).ID == id_titan && "Cambiante".equals(lista.get(i).tipo)){
+                        mensaje_enviar = "El titan es tipo Cambiante, por lo cual no se puede Asesinar";
+                    }
+                }
+                lineaDistrito.enviarMensajeRespuesta(mensaje_enviar);
             }
 
         }

@@ -12,8 +12,6 @@ public class comunicadorUnicast {
     InetAddress ipUltimoCliente = null;
     int puertoUltimoCliente;
     DatagramSocket unicastSocket = null;
-    byte[] mensajeRecibido = new byte[1024];
-    byte[] mensajeEnviado = new byte[1024];
 
     public comunicadorUnicast(String arg_ip, int arg_puerto) {
         try {
@@ -60,12 +58,13 @@ public class comunicadorUnicast {
     }
 
     public void enviarMensajeRespuesta(String msj) {
+        byte[] mensajeEnviado = new byte[1024];
         mensajeEnviado = msj.getBytes();
         DatagramPacket paqueteEnviado =
                 new DatagramPacket(mensajeEnviado, mensajeEnviado.length, ipUltimoCliente, puertoUltimoCliente);
         try {
             unicastSocket.send(paqueteEnviado);
-            //System.out.println("\""+msj+"\": Respuesta enviada!");
+            System.out.println("\""+msj+"\": Respuesta enviada!");
         } catch (Exception e) {
             System.out.println("Error al intentar enviar mensaje unicast.");
             e.printStackTrace();
@@ -73,6 +72,7 @@ public class comunicadorUnicast {
     }
 
     public void enviarMensajePeticion(String msj) {
+        byte[] mensajeEnviado = new byte[1024];
         mensajeEnviado = msj.getBytes();
         DatagramPacket paqueteEnviado =
                 new DatagramPacket(mensajeEnviado, mensajeEnviado.length, ip, puerto);
@@ -86,6 +86,7 @@ public class comunicadorUnicast {
     }
 
     public String recibirMensaje() {
+        byte[] mensajeRecibido = new byte[1024];
         DatagramPacket paqueteRecibido =
                 new DatagramPacket(mensajeRecibido, mensajeRecibido.length);
         try {

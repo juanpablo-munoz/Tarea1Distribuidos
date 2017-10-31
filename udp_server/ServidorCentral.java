@@ -141,8 +141,7 @@ class MiHilo2 extends Thread {
     public void run(){
         if(variable == 1){
             int ID = 1;
-            byte[] buf = new byte[1024];
-            byte[] buf2 = new byte[1024];
+            byte[] buf;
             DatagramPacket packet;
             DatagramSocket socket = null;
             try {
@@ -151,31 +150,32 @@ class MiHilo2 extends Thread {
                 Logger.getLogger(MiHilo2.class.getName()).log(Level.SEVERE, null, ex);
             }
             while(true){
-            packet = new DatagramPacket(buf, buf.length);
+                buf = new byte[1024];
+                packet = new DatagramPacket(buf, buf.length);
 
 
-                try {
-                    socket.receive(packet);
-                } catch (IOException ex) {
-                    Logger.getLogger(MiHilo2.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            String recibido = new String(packet.getData(),0);
+                    try {
+                        socket.receive(packet);
+                    } catch (IOException ex) {
+                        Logger.getLogger(MiHilo2.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                String recibido = new String(packet.getData(),0);
+
+                System.out.println("string recibido:  "+recibido);
+                InetAddress address = packet.getAddress();
 
 
-            InetAddress address = packet.getAddress();
+                int port = packet.getPort();
 
-
-            int port = packet.getPort();
-
-            String cadena = String.valueOf(ID);
-            ID = ID+1;
-            String envio = cadena;
-            
-                try {
-                    socket.send(packet);
-                } catch (IOException ex) {
-                    Logger.getLogger(MiHilo2.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                String cadena = String.valueOf(ID);
+                ID = ID+1;
+                buf = cadena.getBytes();
+                packet = new DatagramPacket(buf, buf.length,address,port);
+                    try {
+                        socket.send(packet);
+                    } catch (IOException ex) {
+                        Logger.getLogger(MiHilo2.class.getName()).log(Level.SEVERE, null, ex);
+                    }
         
             }
         }

@@ -8,8 +8,6 @@ public class comunicadorMulticast {
     private InetAddress grupo = null;
     private int puerto_grupo;
     private MulticastSocket multicastSocket = null;
-    byte[] mensajeRecibido = new byte[1024];
-    byte[] mensajeEnviado = new byte[1024];
 
     public comunicadorMulticast(String ip, int port) {
         try {
@@ -47,6 +45,7 @@ public class comunicadorMulticast {
     }
 
     public void difundirMensaje(String mensaje) {
+        byte[] mensajeEnviado = new byte[1024];
         mensajeEnviado = mensaje.getBytes();
         DatagramPacket cuerpo_mensaje =
                 new DatagramPacket(mensajeEnviado, mensajeEnviado.length, grupo, puerto_grupo);
@@ -61,6 +60,7 @@ public class comunicadorMulticast {
     }
 
     public String recibirMensaje() {
+        byte[] mensajeRecibido = new byte[1024];
         DatagramPacket paqueteRecibido =
                 new DatagramPacket(mensajeRecibido, mensajeRecibido.length);
         try {
