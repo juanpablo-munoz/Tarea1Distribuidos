@@ -72,7 +72,8 @@ class Cliente {
             // Establecer conexión Unicast con el Distrito, para el paso de peticiones de Captura y Asesinato
             comunicadorUnicast lineaDistrito =
                     new comunicadorUnicast(ipPeticionesDistrito, puertoPeticionesDistrito);
-
+            comunicadorUnicast LineaAServer_listas =
+                    new comunicadorUnicast(ipServidorCentral, 4448);
             // Menu principal
             String mensaje_id_titan;
             boolean irse = true; 
@@ -112,10 +113,14 @@ class Cliente {
                         System.out.println(mensaje_recibido);
                         break;
                     case "5":
-                        //Listar Titanes Capturados
+                        LineaAServer_listas.enviarMensajePeticion("1");
+                        String capturados = LineaAServer_listas.recibirMensaje();
+                        System.out.println(capturados);
                         break;
                     case "6":
-                        //Listar Titanes Asesinados
+                        LineaAServer_listas.enviarMensajePeticion("2");
+                        String asesinados = LineaAServer_listas.recibirMensaje();
+                        System.out.println(asesinados);
                         break;
                     default:
                         System.out.println("Elija una de las opciones (1-6).");

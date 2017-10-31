@@ -4,7 +4,9 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -95,9 +97,18 @@ class ServidorCentral {
     }
 
     public static void main(String[] args) {
-        int puertoRecepcion;
-        Thread hiloA = new MiHilo2(1);
+        int puertoRecepcion;      	
+        List<String> capturados = new ArrayList<String>();
+        List<String> asesinados = new ArrayList<String>();
+        Thread hiloA = new MiHilo2(1,capturados,asesinados);
+        Thread hiloB = new MiHilo2(2,capturados,asesinados);
+        Thread hiloC = new MiHilo2(3,capturados,asesinados);
+        Thread hiloD = new MiHilo2(4,capturados,asesinados);
         hiloA.start();
+        hiloB.start();
+        hiloC.start();
+        hiloD.start();
+        
         // Pedir datos de Servidor Central
         System.out.print("[Servidor Central] Ingresar Puerto de recepcion de Clientes: ");
         puertoRecepcion = pedirPuerto();
@@ -134,8 +145,12 @@ class ServidorCentral {
 
 class MiHilo2 extends Thread {
     public int variable;
-    public MiHilo2(int numero){
+    public List<String> capturados;
+    public List<String> asesinados;
+    public MiHilo2(int numero, List<String> cap , List<String> ase){
         variable = numero;
+        capturados = cap;
+        asesinados = ase;
     }
     @Override
     public void run(){
@@ -177,6 +192,41 @@ class MiHilo2 extends Thread {
                         Logger.getLogger(MiHilo2.class.getName()).log(Level.SEVERE, null, ex);
                     }
         
+            }
+        }
+        if (variable == 2){
+            comunicadorUnicast lineaDistrito = new comunicadorUnicast(4446);
+            while(true){
+                String mensaje = lineaDistrito.recibirMensaje();
+                capturados.add(mensaje);
+            }
+        }
+        if (variable == 3){
+            comunicadorUnicast lineaDistrito = new comunicadorUnicast(4447);
+            while(true){
+                String mensaje = lineaDistrito.recibirMensaje();
+                asesinados.add(mensaje);
+            }
+        }
+        if (variable == 4){
+            comunicadorUnicast lineaCliente = new comunicadorUnicast(4448);
+            
+            while(true){
+                String opcion = lineaCliente.recibirMensaje();
+                int identificador = Integer.parseInt(opcion.trim());
+                String lista_total="";
+                if(identificador == 1){
+                    for (int i=0; i<capturados.size();i++){
+                        lista_total+= capturados.get(i) + "\n";
+                    }
+                    lineaCliente.enviarMensajeRespuesta(lista_total);
+                }
+                if(identificador == 2){
+                    for (int i=0; i<asesinados.size();i++){
+                        lista_total+= asesinados.get(i) + "\n";
+                    }
+                    lineaCliente.enviarMensajeRespuesta(lista_total);
+                }
             }
         }
         }

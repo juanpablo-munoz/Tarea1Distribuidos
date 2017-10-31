@@ -45,7 +45,7 @@ public class Distrito_server {
         TitanesDelDistrito titanes = new TitanesDelDistrito();
         comunicadorUnicast lineaDistrito = new comunicadorUnicast(puerto_peticion);
         Thread hiloA = new MiHilo(1,Nombre_Distrito,socketDistrito,ip_multicast,puerto_multicast,ip_peticion,puerto_peticion, titanes,ip_servidor_central);
-        Thread hiloB = new MiHilo5(titanes,lineaDistrito);
+        Thread hiloB = new MiHilo5(titanes,lineaDistrito,ip_servidor_central);
         hiloA.start();
         hiloB.start();
 
@@ -167,14 +167,19 @@ class MiHilo extends Thread {
  class MiHilo5 extends Thread {
     public TitanesDelDistrito titanes;
     public comunicadorUnicast lineaDistrito;
-    
-    public MiHilo5(TitanesDelDistrito titan, comunicadorUnicast unicast ) throws SocketException, UnknownHostException{
+    public comunicadorUnicast lineaServer_capturas;
+    public comunicadorUnicast lineaServer_asesinatos;
+    public String ip_servidor_central;
+    public MiHilo5(TitanesDelDistrito titan, comunicadorUnicast unicast, String ipServer ) throws SocketException, UnknownHostException{
         titanes = titan;
         lineaDistrito = unicast;
+        ip_servidor_central=ipServer;
     }
     @Override
     public void run(){
         String mensaje_enviar = "";
+        lineaServer_capturas = new comunicadorUnicast(ip_servidor_central,4446);
+        lineaServer_asesinatos = new comunicadorUnicast(ip_servidor_central,4447);
         while(true){
             String recibido = lineaDistrito.recibirMensaje();
             char[] aCaracteres = recibido.toCharArray();
@@ -188,7 +193,7 @@ class MiHilo extends Thread {
                 List<Titan> lista = titanes.getVivos();
                 String lista_titanes_vivos = "";
                 for(int i = 0; i < lista.size(); i++) {
-                lista_titanes_vivos += lista.get(i).nombre + ", tipo "+ lista.get(i).tipo+ ", ID " + lista.get(i).ID + "\t";
+                lista_titanes_vivos += lista.get(i).nombre + ", tipo "+ lista.get(i).tipo+ ", ID " + lista.get(i).ID + "\t\n";
                 }
                 lineaDistrito.enviarMensajeRespuesta(lista_titanes_vivos);
                         
@@ -198,10 +203,13 @@ class MiHilo extends Thread {
                 mensaje_enviar = "No se encontro la ID del titan";
                 for(int i = 0; i < lista.size(); i++) {
                     if (lista.get(i).ID == id_titan && !"Excentrico".equals(lista.get(i).tipo)){
+                        String mensaje_para_server=lista.get(i).nombre + ", tipo "+lista.get(i).tipo+", ID "+lista.get(i).ID;
+                        lineaServer_capturas.enviarMensajePeticion(mensaje_para_server);
                         titanes.capturarTitan(lista.get(i));
                         mensaje_enviar = "Captura exitosa";
+                        
                     }
-                    if (lista.get(i).ID == id_titan && "Excentrico".equals(lista.get(i).tipo)){
+                    else if (lista.get(i).ID == id_titan && "Excentrico".equals(lista.get(i).tipo)){
                         mensaje_enviar = "El titan es tipo excentrico, por lo cual no se puede capturar";
                     }
                 }
@@ -212,10 +220,13 @@ class MiHilo extends Thread {
                 mensaje_enviar = "No se encontro la ID del titan";
                 for(int i = 0; i < lista.size(); i++) {
                     if (lista.get(i).ID == id_titan && !"Cambiante".equals(lista.get(i).tipo)){
+                        String mensaje_para_server=lista.get(i).nombre + ", tipo "+lista.get(i).tipo+", ID "+lista.get(i).ID;
+                        lineaServer_asesinatos.enviarMensajePeticion(mensaje_para_server);
                         titanes.asesinarTitan(lista.get(i));
                         mensaje_enviar = "Asesinato exitoso";
+                        
                     }
-                    if (lista.get(i).ID == id_titan && "Cambiante".equals(lista.get(i).tipo)){
+                    else if (lista.get(i).ID == id_titan && "Cambiante".equals(lista.get(i).tipo)){
                         mensaje_enviar = "El titan es tipo Cambiante, por lo cual no se puede Asesinar";
                     }
                 }

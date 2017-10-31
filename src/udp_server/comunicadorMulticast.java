@@ -56,7 +56,6 @@ public class comunicadorMulticast {
             e.printStackTrace();
             return;
         }
-        System.out.println("Se difundio mensaje!");
     }
 
     public String recibirMensaje() {

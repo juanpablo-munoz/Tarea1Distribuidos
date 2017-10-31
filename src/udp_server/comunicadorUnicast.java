@@ -64,7 +64,6 @@ public class comunicadorUnicast {
                 new DatagramPacket(mensajeEnviado, mensajeEnviado.length, ipUltimoCliente, puertoUltimoCliente);
         try {
             unicastSocket.send(paqueteEnviado);
-            System.out.println("\""+msj+"\": Respuesta enviada!");
         } catch (Exception e) {
             System.out.println("Error al intentar enviar mensaje unicast.");
             e.printStackTrace();
@@ -78,7 +77,6 @@ public class comunicadorUnicast {
                 new DatagramPacket(mensajeEnviado, mensajeEnviado.length, ip, puerto);
         try {
             unicastSocket.send(paqueteEnviado);
-            System.out.println("\""+msj+"\": Peticion enviada!");
         } catch (Exception e) {
             System.out.println("Error al intentar enviar mensaje unicast.");
             e.printStackTrace();

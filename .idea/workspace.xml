@@ -2,19 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0e79478-7a0b-42ce-864c-f753f21ca94c" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/udp_server/Cliente.java" afterPath="$PROJECT_DIR$/src/udp_server/Cliente.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/udp_server/Distrito.java" afterPath="$PROJECT_DIR$/src/udp_server/Distrito.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/udp_server/Distrito_server.java" afterPath="$PROJECT_DIR$/src/udp_server/Distrito_server.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/udp_server/Mensaje.java" afterPath="$PROJECT_DIR$/src/udp_server/Mensaje.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/udp_server/ServidorCentral.java" afterPath="$PROJECT_DIR$/src/udp_server/ServidorCentral.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/udp_server/Titan.java" afterPath="$PROJECT_DIR$/src/udp_server/Titan.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/udp_server/TitanesDelDistrito.java" afterPath="$PROJECT_DIR$/src/udp_server/TitanesDelDistrito.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/udp_server/UDP_server.java" afterPath="$PROJECT_DIR$/src/udp_server/UDP_server.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/udp_server/comunicadorMulticast.java" afterPath="$PROJECT_DIR$/src/udp_server/comunicadorMulticast.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/udp_server/comunicadorUnicast.java" afterPath="$PROJECT_DIR$/src/udp_server/comunicadorUnicast.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tarea1/Cliente.class" afterPath="$PROJECT_DIR$/out/production/Tarea1/Cliente.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tarea1/ServidorCentral.class" afterPath="$PROJECT_DIR$/out/production/Tarea1/ServidorCentral.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/udp_server/Cliente.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/udp_server/Distrito.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/udp_server/Distrito_server.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/udp_server/Mensaje.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/udp_server/ServidorCentral.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/udp_server/Titan.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/udp_server/TitanesDelDistrito.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/udp_server/UDP_server.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/udp_server/comunicadorMulticast.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/udp_server/comunicadorUnicast.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tarea1/udp_server/Cliente.class" afterPath="$PROJECT_DIR$/out/production/Tarea1/udp_server/Cliente.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tarea1/udp_server/Distrito_server.class" afterPath="$PROJECT_DIR$/out/production/Tarea1/udp_server/Distrito_server.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tarea1/udp_server/MiHilo2.class" afterPath="$PROJECT_DIR$/out/production/Tarea1/udp_server/MiHilo2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tarea1/udp_server/MiHilo3.class" afterPath="$PROJECT_DIR$/out/production/Tarea1/udp_server/MiHilo3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tarea1/udp_server/MiHilo5.class" afterPath="$PROJECT_DIR$/out/production/Tarea1/udp_server/MiHilo5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tarea1/udp_server/ServidorCentral.class" afterPath="$PROJECT_DIR$/out/production/Tarea1/udp_server/ServidorCentral.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tarea1/udp_server/comunicadorMulticast.class" afterPath="$PROJECT_DIR$/out/production/Tarea1/udp_server/comunicadorMulticast.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Tarea1/udp_server/comunicadorUnicast.class" afterPath="$PROJECT_DIR$/out/production/Tarea1/udp_server/comunicadorUnicast.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/udp_server/Cliente.java" afterPath="$PROJECT_DIR$/src/udp_server/Cliente.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/udp_server/Distrito.java" afterPath="$PROJECT_DIR$/src/udp_server/Distrito.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/udp_server/Distrito_server.java" afterPath="$PROJECT_DIR$/src/udp_server/Distrito_server.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/udp_server/Mensaje.java" afterPath="$PROJECT_DIR$/src/udp_server/Mensaje.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/udp_server/ServidorCentral.java" afterPath="$PROJECT_DIR$/src/udp_server/ServidorCentral.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/udp_server/Titan.java" afterPath="$PROJECT_DIR$/src/udp_server/Titan.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/udp_server/TitanesDelDistrito.java" afterPath="$PROJECT_DIR$/src/udp_server/TitanesDelDistrito.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/udp_server/UDP_server.java" afterPath="$PROJECT_DIR$/src/udp_server/UDP_server.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/udp_server/comunicadorMulticast.java" afterPath="$PROJECT_DIR$/src/udp_server/comunicadorMulticast.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/udp_server/comunicadorUnicast.java" afterPath="$PROJECT_DIR$/src/udp_server/comunicadorUnicast.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,20 +41,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ServidorCentral.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/udp_server/ServidorCentral.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1547">
-              <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -132,34 +135,7 @@
               <item name="tarea1" type="b2602c69:ProjectViewProjectNode" />
               <item name="Tarea1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="aod" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tarea1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tarea1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="aod" type="462c0819:PsiDirectoryNode" />
-              <item name="comunicaciones" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tarea1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tarea1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="aod" type="462c0819:PsiDirectoryNode" />
-              <item name="entidades" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tarea1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tarea1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="udp_server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tarea1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tarea1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="udp_server" type="462c0819:PsiDirectoryNode" />
-              <item name="ServidorCentral.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
             <path>
               <item name="tarea1" type="b2602c69:ProjectViewProjectNode" />
@@ -365,28 +341,30 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.49562362" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26280624" sideWeight="0.50875276" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26280624" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26280624" sideWeight="0.49124727" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21334793" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24945295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -409,47 +387,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aod/comunicaciones/receptorUnicast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aod/comunicaciones/receptorUnicast.java" />
     <entry file="file://$PROJECT_DIR$/src/maestro.java" />
-    <entry file="file://$PROJECT_DIR$/src/aod/comunicaciones/receptorUnicast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aod/comunicaciones/receptorDifusion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aod/comunicaciones/receptorUnicast.java" />
+    <entry file="file://$PROJECT_DIR$/src/aod/comunicaciones/receptorDifusion.java" />
     <entry file="file://$PROJECT_DIR$/src/aod/comunicaciones/Mensaje.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aod/comunicaciones/Difusor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aod/comunicaciones/Difusor.java" />
     <entry file="file://$PROJECT_DIR$/src/aod/entidades/Titan.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -468,14 +417,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aod/ServidorCentral.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="28" lean-forward="false" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aod/ServidorCentral.java" />
     <entry file="file://$PROJECT_DIR$/src/aod/entidades/Distrito.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -530,17 +472,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/udp_server/UDP_server.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#1129#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/udp_server/UDP_server.class" />
     <entry file="file://$PROJECT_DIR$/src/ServidorCentral.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -549,17 +481,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/udp_server/ServidorCentral.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#6580#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/udp_server/ServidorCentral.class" />
     <entry file="file://$PROJECT_DIR$/src/aod/comunicaciones/comunicadorMulticast.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -570,16 +492,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/udp_server/Cliente.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1518">
-          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#5225#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/udp_server/Cliente.class" />
     <entry file="file://$PROJECT_DIR$/src/aod/comunicaciones/comunicadorUnicast.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -720,9 +633,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#9242#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -754,9 +665,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#1442#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -809,9 +718,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1547">
           <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
