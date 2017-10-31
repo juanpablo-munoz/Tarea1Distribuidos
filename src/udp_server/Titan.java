@@ -1,4 +1,4 @@
-package UDP_server;
+package udp_server;
 
 public class Titan {
     public int ID;

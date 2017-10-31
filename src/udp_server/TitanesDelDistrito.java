@@ -1,4 +1,4 @@
-package UDP_server;
+package udp_server;
 
 import java.util.List;
 import java.util.ArrayList;
