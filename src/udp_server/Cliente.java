@@ -143,7 +143,7 @@ class MiHilo3 extends Thread {
             while(true){
             String Listar_titanes = grupoDistrito.recibirMensaje();
             System.out.println();
-            System.out.println("[Cliente]Aparece nuevo Titan! "+Listar_titanes);
+            System.out.println("[Cliente] Aparece nuevo Titan! "+Listar_titanes);
             System.out.print("Seleccione una opcion del menu (si es que estaba en el menu): ");}
         }
         }

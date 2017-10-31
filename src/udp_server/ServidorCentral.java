@@ -75,7 +75,7 @@ class ServidorCentral {
                     case "1":
                         lock = false;
                         System.out.println("[Servidor Central] Respuesta a " + ipCliente + ":" + puertoCliente + " por " + mensaje+":");
-                        respuesta = "Nombre: " + distr.nombre + ", IP Multicast: " + distr.ipMulticast + ", Puerto Multicast: " + distr.puertoMulticast + ", IP Peticiones: " + distr.ipPeticiones + ", Puerto Peticiones: " + distr.ipPeticiones;
+                        respuesta = "Nombre: " + distr.nombre + ", IP Multicast: " + distr.ipMulticast + ", Puerto Multicast: " + distr.puertoMulticast + ", IP Peticiones: " + distr.ipPeticiones + ", Puerto Peticiones: " + distr.puertoPeticiones;
                         System.out.println("\""+respuesta+"\"");
                         break;
                     case "2":
@@ -174,12 +174,8 @@ class MiHilo2 extends Thread {
                     } catch (IOException ex) {
                         Logger.getLogger(MiHilo2.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                String recibido = new String(packet.getData(),0);
 
-                System.out.println("string recibido:  "+recibido);
                 InetAddress address = packet.getAddress();
-
-
                 int port = packet.getPort();
 
                 String cadena = String.valueOf(ID);
